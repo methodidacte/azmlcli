@@ -1,9 +1,0 @@
-# job.yml
-code: ./src
-command: echo "Hello Azure ML!"
-environment:
-  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
-  name: hello-env
-  version: 1
-compute: azureml:ftpcluster
-experiment_name: hello-world
