@@ -28,4 +28,4 @@ jobs:
 
     - name: Submit job to Azure ML
       run: |
-        az ml job create -f job.yml
+        az ml job create -f src/job.yml
