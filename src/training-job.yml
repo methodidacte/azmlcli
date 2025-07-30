@@ -1,0 +1,6 @@
+code: ./src
+command: >-
+  python train.py --learning_rate 0.01
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
+compute: azureml:cpu-cluster
+experiment_name: my-training-experiment
