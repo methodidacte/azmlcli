@@ -20,7 +20,7 @@ jobs:
 
     - name: Install Azure ML CLI v2
       run: |
-        pip install azure-ai-ml azure-identityip 
+        pip install azure-ai-ml==1.28.1 azure-identity 
         pip freeze
         az extension add -n ml -y
 
