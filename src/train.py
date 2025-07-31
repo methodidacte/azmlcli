@@ -30,3 +30,28 @@ print(f"R² Score: {r2:.2f}")
 # Sauvegarde du modèle
 os.makedirs("outputs", exist_ok=True)
 joblib.dump(model, "outputs/model.joblib")
+
+# Enregistrement du modèle dans Azure ML
+workspace_name = "methoaml"
+resource_group = "rg-open-ai"
+subscription_id = "f80606e5-788f-4dc3-a9ea-2eb9a7836082"
+
+ml_client = MLClient(
+    DefaultAzureCredential(),
+    subscription_id,
+    resource_group,
+    workspace_name
+)
+
+registered_model = ml_client.models.create_or_update(
+    Model(
+        path=model_path,
+        name="california-linear-model",
+        description="Modèle de régression linéaire sur California Housing",
+        type=AssetTypes.CUSTOM_MODEL,
+        tags={"framework": "sklearn", "dataset": "california_housing"},
+        properties={"mse": str(mse), "r2": str(r2)},
+    )
+)
+
+print(f"✅ Modèle enregistré dans Azure ML avec l'ID : {registered_model.id}")
