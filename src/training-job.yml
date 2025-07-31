@@ -1,7 +1,7 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: ./
 command: >-
-  python train.py --learning_rate 0.01
+  python train.py
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
-compute: azureml:cpu-cluster
+compute: azureml:ccluster
 experiment_name: my-training-experiment
