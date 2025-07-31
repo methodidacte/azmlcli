@@ -1,3 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: ./src
 command: >-
   python train.py --learning_rate 0.01
