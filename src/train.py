@@ -7,6 +7,11 @@ from sklearn.metrics import mean_squared_error, r2_score
 import joblib
 import os
 
+from azure.identity import DefaultAzureCredential
+from azure.ai.ml import MLClient
+from azure.ai.ml.entities import Model
+from azure.ai.ml.constants import AssetTypes
+
 # Chargement des données
 housing = fetch_california_housing()
 X = pd.DataFrame(housing.data, columns=housing.feature_names)
